@@ -13,9 +13,7 @@ use tokio::sync::Mutex;
 use tauri::async_runtime::JoinHandle;
 use serde::Deserialize;
 use futures::StreamExt;
-use std::sync::atomic::AtomicBool;
 use crate::utils::dirs::app_home_dir;
-use std::path::PathBuf;
 use std::fs;
 use std::time::SystemTime;
 
