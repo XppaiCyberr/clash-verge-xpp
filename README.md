@@ -38,38 +38,7 @@ Read the [project documentation](https://clash-verge-rev.github.io/) for install
 
 Join [@clash_verge_rev](https://t.me/clash_verge_re) for update announcements.
 
-## Promotion
 
-### ✈️ [Doggygo VPN — A Technical-Grade Proxy Service](https://verge.dginv.click/#/register?code=oaxsAGo6)
-
-🚀 A high-performance, overseas, technical-grade proxy service offering free trials and discounted plans, fully unlocking streaming platforms and AI services. The world’s first provider to adopt the **QUIC protocol**.
-
-🎁 Register via the **Clash Verge exclusive invitation link** to receive **3 days of free trial**, with **1GB traffic per day**: 👉 [Register here](https://verge.dginv.click/#/register?code=oaxsAGo6)
-
-#### **Core Advantages:**
-
-- 📱 Self-developed iOS client (the industry’s “only one”), with technology proven in production and **significant ongoing R&D investment**
-- 🧑‍💻 **12-hour live customer support** (also assists with Clash Verge usage issues)
-- 💰 Discounted plans at **only CNY 21 per month, 160GB traffic, 20% off with annual billing**
-- 🌍 Overseas team, no risk of shutdown or exit scams, with up to **50% referral commission**
-- ⚙️ **Cluster-based load balancing** architecture with **real-time load monitoring and elastic scaling**, high-speed dedicated lines (compatible with legacy clients), ultra-low latency, unaffected by peak hours, **4K streaming loads instantly**
-- ⚡ The world’s first **QUIC-protocol-based proxy service**, now upgraded with the faster **Tuic protocol** (best paired with the Clash Verge client)
-- 🎬 Unlocks **streaming platforms and mainstream AI services**
-
-🌐 Official Website: 👉 [https://狗狗加速.com](https://verge.dginv.click/#/register?code=oaxsAGo6)
-
-#### Build Infrastructure Sponsor — [YXVM Dedicated Servers](https://yxvm.com/aff.php?aff=827)
-
-Our builds and releases run on YXVM dedicated servers that deliver premium resources, strong performance, and high-speed networking. If downloads feel fast and usage feels snappy, it is thanks to robust hardware.
-
-🧩 Highlights of YXVM Dedicated Servers:
-
-- 🌎 Optimized global routes for dramatically faster downloads
-- 🔧 Bare-metal resources instead of shared VPS capacity for maximum performance
-- 🧠 Great for proxy workloads, hosting web/CDN services, CI/CD pipelines, or any high-load tasks
-- 💡 Ready to use instantly with multiple datacenter options, including CN2 and IEPL
-- 📦 The configuration used by this project is on sale—feel free to get the same setup
-- 🎯 Want the same build environment? [Order a YXVM server today](https://yxvm.com/aff.php?aff=827)
 
 ## Features
 
