@@ -1,0 +1,22 @@
+{
+  "components": {
+    "navigation": {
+      "tabs": {
+        "home": "Главная",
+        "proxies": "Прокси",
+        "profiles": "Профили",
+        "connections": "Соединения",
+        "rules": "Правила",
+        "logs": "Логи",
+        "unlock": "Тест",
+        "settings": "Настройки"
+      },
+      "menu": {
+        "reorderMode": "Menu reorder mode",
+        "restoreDefaultOrder": "Restore default order",
+        "unlock": "Unlock menu order",
+        "lock": "Lock menu order"
+      }
+    }
+  }
+}
