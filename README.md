@@ -17,7 +17,7 @@ A Clash Meta GUI built with <a href="https://github.com/tauri-apps/tauri">Tauri<
 
 ## Install
 
-Visit the [Release page](https://github.com/clash-verge-rev/clash-verge-rev/releases) to download the installer that matches your platform.<br>
+Visit the [Release page](https://github.com/clash-verge-rev/clash-verge-rev/releases) to download the installer that matches your platform, or build it yourself.<br>
 We provide packages for Windows (x64/x86), Linux (x64/arm64), and macOS 10.15+ (Intel/Apple).
 
 #### Choosing a Release Channel
@@ -32,11 +32,7 @@ We provide packages for Windows (x64/x86), Linux (x64/arm64), and macOS 10.15+ (
 
 Read the [project documentation](https://clash-verge-rev.github.io/) for install steps, troubleshooting, and frequently asked questions.
 
----
 
-### Telegram Channel
-
-Join [@clash_verge_rev](https://t.me/clash_verge_re) for update announcements.
 
 
 
@@ -50,6 +46,9 @@ Join [@clash_verge_rev](https://t.me/clash_verge_re) for update announcements.
 - Visual editors for nodes and rules
 - WebDAV-based backup and sync for configurations
 - Discord Rich Presence (RPC) support
+
+![Discord Presence](./docs/discordpresence.png)
+![Discord Presence Config](./docs/dpconfig.png)
 
 ### FAQ
 
@@ -79,6 +78,7 @@ Issues and pull requests are welcome!
 
 Clash Verge Rev builds on or draws inspiration from these projects:
 
+- [clash-verge-rev/clash-verge-rev](https://github.com/clash-verge-rev/clash-verge-rev): Continuation of Clash Verge.
 - [zzzgydi/clash-verge](https://github.com/zzzgydi/clash-verge): A Tauri-based Clash GUI for Windows, macOS, and Linux.
 - [tauri-apps/tauri](https://github.com/tauri-apps/tauri): Build smaller, faster, more secure desktop apps with a web frontend.
 - [Dreamacro/clash](https://github.com/Dreamacro/clash): A rule-based tunnel written in Go.
