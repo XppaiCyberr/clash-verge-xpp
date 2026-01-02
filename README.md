@@ -6,103 +6,95 @@
 </h1>
 
 <h3 align="center">
-A Clash Meta GUI based on <a href="https://github.com/tauri-apps/tauri">Tauri</a>.
+A Clash Meta GUI built with <a href="https://github.com/tauri-apps/tauri">Tauri</a>.
 </h3>
-
-<p align="center">
-  Languages:
-  <a href="./README.md">简体中文</a> ·
-  <a href="./docs/README_en.md">English</a> ·
-  <a href="./docs/README_es.md">Español</a> ·
-  <a href="./docs/README_ru.md">Русский</a> ·
-  <a href="./docs/README_ja.md">日本語</a> ·
-  <a href="./docs/README_ko.md">한국어</a> ·
-  <a href="./docs/README_fa.md">فارسی</a>
-</p>
 
 ## Preview
 
-| Dark                             | Light                             |
-| -------------------------------- | --------------------------------- |
-| ![预览](./docs/preview_dark.png) | ![预览](./docs/preview_light.png) |
+| Dark                                | Light                                 |
+| ----------------------------------- | ------------------------------------- |
+| ![Dark Preview](./docs/preview_dark.png) | ![Light Preview](./docs/preview_light.png) |
 
 ## Install
 
-请到发布页面下载对应的安装包：[Release page](https://github.com/clash-verge-rev/clash-verge-rev/releases)<br>
-Go to the [Release page](https://github.com/clash-verge-rev/clash-verge-rev/releases) to download the corresponding installation package<br>
-Supports Windows (x64/x86), Linux (x64/arm64) and macOS 10.15+ (intel/apple).
+Visit the [Release page](https://github.com/clash-verge-rev/clash-verge-rev/releases) to download the installer that matches your platform.<br>
+We provide packages for Windows (x64/x86), Linux (x64/arm64), and macOS 10.15+ (Intel/Apple).
 
-#### 我应当怎样选择发行版
+#### Choosing a Release Channel
 
-| 版本        | 特征                                     | 链接                                                                                   |
-| :---------- | :--------------------------------------- | :------------------------------------------------------------------------------------- |
-| Stable      | 正式版，高可靠性，适合日常使用。         | [Release](https://github.com/clash-verge-rev/clash-verge-rev/releases)                 |
-| Alpha(废弃) | 测试发布流程。                           | [Alpha](https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/alpha)         |
-| AutoBuild   | 滚动更新版，适合测试反馈，可能存在缺陷。 | [AutoBuild](https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/autobuild) |
+| Channel     | Description                                                           | Link                                                                                   |
+| :---------- | :-------------------------------------------------------------------- | :------------------------------------------------------------------------------------- |
+| Stable      | Official builds with high reliability, ideal for daily use.           | [Release](https://github.com/clash-verge-rev/clash-verge-rev/releases)                 |
+| Alpha (EOL) | Legacy builds used to validate the publish pipeline.                  | [Alpha](https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/alpha)         |
+| AutoBuild   | Rolling builds for testing and feedback. Expect experimental changes. | [AutoBuild](https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/autobuild) |
 
-#### 安装说明和常见问题，请到 [文档页](https://clash-verge-rev.github.io/) 查看
+#### Installation Guides & FAQ
+
+Read the [project documentation](https://clash-verge-rev.github.io/) for install steps, troubleshooting, and frequently asked questions.
 
 ---
 
-### TG 频道: [@clash_verge_rev](https://t.me/clash_verge_re)
+### Telegram Channel
+
+Join [@clash_verge_rev](https://t.me/clash_verge_re) for update announcements.
 
 ## Promotion
 
-### ✈️ [狗狗加速 —— 技术流机场 Doggygo VPN](https://verge.dginv.click/#/register?code=oaxsAGo6)
+### ✈️ [Doggygo VPN — A Technical-Grade Proxy Service](https://verge.dginv.click/#/register?code=oaxsAGo6)
 
-🚀 高性能海外技术流机场，支持免费试用与优惠套餐，全面解锁流媒体及 AI 服务，全球首家采用 **QUIC 协议**。
+🚀 A high-performance, overseas, technical-grade proxy service offering free trials and discounted plans, fully unlocking streaming platforms and AI services. The world’s first provider to adopt the **QUIC protocol**.
 
-🎁 使用 **Clash Verge 专属邀请链接** 注册即送 **3 天免费试用**，每日 **1GB 流量**：👉 [点此注册](https://verge.dginv.click/#/register?code=oaxsAGo6)
+🎁 Register via the **Clash Verge exclusive invitation link** to receive **3 days of free trial**, with **1GB traffic per day**: 👉 [Register here](https://verge.dginv.click/#/register?code=oaxsAGo6)
 
-#### **核心优势：**
+#### **Core Advantages:**
 
-- 📱 自研 iOS 客户端（业内"唯一"）技术经得起考验，极大**持续研发**投入
-- 🧑‍💻 **12小时真人客服**(顺带解决 Clash Verge 使用问题)
-- 💰 优惠套餐每月**仅需 21 元，160G 流量，年付 8 折**
-- 🌍 海外团队，无跑路风险，高达 50% 返佣
-- ⚙️ **集群负载均衡**设计，**负载监控和随时扩容**，高速专线(兼容老客户端)，极低延迟，无视晚高峰，4K 秒开
-- ⚡ 全球首家**Quic 协议机场**，现已上线更快的 Tuic 协议(Clash Verge 客户端最佳搭配)
-- 🎬 解锁**流媒体及 主流 AI**
+- 📱 Self-developed iOS client (the industry’s “only one”), with technology proven in production and **significant ongoing R&D investment**
+- 🧑‍💻 **12-hour live customer support** (also assists with Clash Verge usage issues)
+- 💰 Discounted plans at **only CNY 21 per month, 160GB traffic, 20% off with annual billing**
+- 🌍 Overseas team, no risk of shutdown or exit scams, with up to **50% referral commission**
+- ⚙️ **Cluster-based load balancing** architecture with **real-time load monitoring and elastic scaling**, high-speed dedicated lines (compatible with legacy clients), ultra-low latency, unaffected by peak hours, **4K streaming loads instantly**
+- ⚡ The world’s first **QUIC-protocol-based proxy service**, now upgraded with the faster **Tuic protocol** (best paired with the Clash Verge client)
+- 🎬 Unlocks **streaming platforms and mainstream AI services**
 
-🌐 官网：👉 [https://狗狗加速.com](https://verge.dginv.click/#/register?code=oaxsAGo6)
+🌐 Official Website: 👉 [https://狗狗加速.com](https://verge.dginv.click/#/register?code=oaxsAGo6)
 
-#### 本项目的构建与发布环境由 [YXVM](https://yxvm.com/aff.php?aff=827) 独立服务器全力支持，
+#### Build Infrastructure Sponsor — [YXVM Dedicated Servers](https://yxvm.com/aff.php?aff=827)
 
-感谢提供 独享资源、高性能、高速网络 的强大后端环境。如果你觉得下载够快、使用够爽，那是因为我们用了好服务器！
+Our builds and releases run on YXVM dedicated servers that deliver premium resources, strong performance, and high-speed networking. If downloads feel fast and usage feels snappy, it is thanks to robust hardware.
 
-🧩 YXVM 独立服务器优势：
+🧩 Highlights of YXVM Dedicated Servers:
 
-- 🌎 优质网络，回程优化，下载快到飞起
-- 🔧 物理机独享资源，非VPS可比，性能拉满
-- 🧠 适合跑代理、搭建 WEB 站 CDN 站 、搞 CI/CD 或任何高负载应用
-- 💡 支持即开即用，多机房选择，CN2 / IEPL 可选
-- 📦 本项目使用配置已在售，欢迎同款入手！
-- 🎯 想要同款构建体验？[立即下单 YXVM 独立服务器！](https://yxvm.com/aff.php?aff=827)
+- 🌎 Optimized global routes for dramatically faster downloads
+- 🔧 Bare-metal resources instead of shared VPS capacity for maximum performance
+- 🧠 Great for proxy workloads, hosting web/CDN services, CI/CD pipelines, or any high-load tasks
+- 💡 Ready to use instantly with multiple datacenter options, including CN2 and IEPL
+- 📦 The configuration used by this project is on sale—feel free to get the same setup
+- 🎯 Want the same build environment? [Order a YXVM server today](https://yxvm.com/aff.php?aff=827)
 
 ## Features
 
-- 基于性能强劲的 Rust 和 Tauri 2 框架
-- 内置[Clash.Meta(mihomo)](https://github.com/MetaCubeX/mihomo)内核，并支持切换 `Alpha` 版本内核。
-- 简洁美观的用户界面，支持自定义主题颜色、代理组/托盘图标以及 `CSS Injection`。
-- 配置文件管理和增强（Merge 和 Script），配置文件语法提示。
-- 系统代理和守卫、`TUN(虚拟网卡)` 模式。
-- 可视化节点和规则编辑
-- WebDav 配置备份和同步
+- Built on high-performance Rust with the Tauri 2 framework
+- Ships with the embedded [Clash.Meta (mihomo)](https://github.com/MetaCubeX/mihomo) core and supports switching to the `Alpha` channel
+- Clean, polished UI with theme color controls, proxy group/tray icons, and `CSS Injection`
+- Enhanced profile management (Merge and Script helpers) with configuration syntax hints
+- System proxy controls, guard mode, and `TUN` (virtual network adapter) support
+- Visual editors for nodes and rules
+- WebDAV-based backup and sync for configurations
 - Discord Rich Presence (RPC) support
 
 ### FAQ
 
-Refer to [Doc FAQ Page](https://clash-verge-rev.github.io/faq/windows.html)
+See the [FAQ page](https://clash-verge-rev.github.io/faq/windows.html) for platform-specific guidance.
 
 ### Donation
 
-[捐助Clash Verge Rev的开发](https://github.com/sponsors/clash-verge-rev)
+[Support Clash Verge Rev development](https://github.com/sponsors/clash-verge-rev)
 
 ## Development
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for more details.
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed contribution guidelines.
 
-To run the development server, execute the following commands after all prerequisites for **Tauri** are installed:
+After installing all **Tauri** prerequisites, run the development shell with:
 
 ```shell
 pnpm i
@@ -112,19 +104,19 @@ pnpm dev
 
 ## Contributions
 
-Issue and PR welcome!
+Issues and pull requests are welcome!
 
 ## Acknowledgement
 
-Clash Verge rev was based on or inspired by these projects and so on:
+Clash Verge Rev builds on or draws inspiration from these projects:
 
-- [zzzgydi/clash-verge](https://github.com/zzzgydi/clash-verge): A Clash GUI based on tauri. Supports Windows, macOS and Linux.
-- [tauri-apps/tauri](https://github.com/tauri-apps/tauri): Build smaller, faster, and more secure desktop applications with a web frontend.
-- [Dreamacro/clash](https://github.com/Dreamacro/clash): A rule-based tunnel in Go.
-- [MetaCubeX/mihomo](https://github.com/MetaCubeX/mihomo): A rule-based tunnel in Go.
-- [Fndroid/clash_for_windows_pkg](https://github.com/Fndroid/clash_for_windows_pkg): A Windows/macOS GUI based on Clash.
-- [vitejs/vite](https://github.com/vitejs/vite): Next generation frontend tooling. It's fast!
+- [zzzgydi/clash-verge](https://github.com/zzzgydi/clash-verge): A Tauri-based Clash GUI for Windows, macOS, and Linux.
+- [tauri-apps/tauri](https://github.com/tauri-apps/tauri): Build smaller, faster, more secure desktop apps with a web frontend.
+- [Dreamacro/clash](https://github.com/Dreamacro/clash): A rule-based tunnel written in Go.
+- [MetaCubeX/mihomo](https://github.com/MetaCubeX/mihomo): A rule-based tunnel written in Go.
+- [Fndroid/clash_for_windows_pkg](https://github.com/Fndroid/clash_for_windows_pkg): A Clash GUI for Windows and macOS.
+- [vitejs/vite](https://github.com/vitejs/vite): Next-generation frontend tooling with blazing-fast DX.
 
 ## License
 
-GPL-3.0 License. See [License here](./LICENSE) for details.
+GPL-3.0 License. See the [license file](./LICENSE) for details.
