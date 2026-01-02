@@ -13,9 +13,58 @@ use tokio::sync::Mutex;
 use tauri::async_runtime::JoinHandle;
 use serde::Deserialize;
 use futures::StreamExt;
+use std::sync::atomic::AtomicBool;
+use crate::utils::dirs::app_home_dir;
+use std::path::PathBuf;
+use std::fs;
+use std::time::SystemTime;
 
 static TRAFFIC_UP: AtomicU64 = AtomicU64::new(0);
 static TRAFFIC_DOWN: AtomicU64 = AtomicU64::new(0);
+
+// Persistence State
+struct TrafficState {
+    total_up: u64,
+    total_down: u64,
+    last_session_up: u64,
+    last_session_down: u64,
+    last_save_time: SystemTime,
+}
+
+static TRAFFIC_STATE: once_cell::sync::Lazy<Mutex<TrafficState>> = once_cell::sync::Lazy::new(|| {
+    let mut state = TrafficState {
+        total_up: 0,
+        total_down: 0,
+        last_session_up: 0,
+        last_session_down: 0,
+        last_save_time: SystemTime::now(),
+    };
+    // Try calculate path and load
+    if let Ok(dir) = app_home_dir() {
+        let path = dir.join("traffic_data.json");
+        if path.exists() {
+             if let Ok(content) = fs::read_to_string(path) {
+                 if let Ok(json) = serde_json::from_str::<serde_json::Value>(&content) {
+                     state.total_up = json["up"].as_u64().unwrap_or(0);
+                     state.total_down = json["down"].as_u64().unwrap_or(0);
+                 }
+             }
+        }
+    }
+    Mutex::new(state)
+});
+
+fn save_traffic_data(up: u64, down: u64) {
+    if let Ok(dir) = app_home_dir() {
+         let path = dir.join("traffic_data.json");
+         let json = serde_json::json!({
+             "up": up,
+             "down": down
+         });
+         let _ = fs::write(path, json.to_string());
+    }
+}
+
 
 static DISCORD_LOOP_HANDLE: once_cell::sync::Lazy<Arc<Mutex<Option<JoinHandle<()>>>>> =
     once_cell::sync::Lazy::new(|| Arc::new(Mutex::new(None)));
@@ -186,14 +235,48 @@ pub async fn update_discord_activity() {
     let down = TRAFFIC_DOWN.load(Ordering::Relaxed);
     
     // Get total traffic info and proxies
+    // Get total traffic info and proxies
     let mihomo = crate::core::handle::Handle::mihomo().await;
-    let mut total_up = 0;
-    let mut total_down = 0;
+    // Removed local zero init, we use the persistent state
     
+    // Update persistent state
     if let Ok(connections) = mihomo.get_connections().await {
-        total_up = connections.upload_total;
-        total_down = connections.download_total;
+        let current_up = connections.upload_total;
+        let current_down = connections.download_total;
+        
+        let mut state = TRAFFIC_STATE.lock().await;
+        
+        // Calculate delta
+        let delta_up = if current_up >= state.last_session_up {
+            current_up - state.last_session_up
+        } else {
+            current_up // Reset detected
+        };
+        
+        let delta_down = if current_down >= state.last_session_down {
+            current_down - state.last_session_down
+        } else {
+            current_down // Reset detected
+        };
+        
+        state.total_up += delta_up;
+        state.total_down += delta_down;
+        state.last_session_up = current_up;
+        state.last_session_down = current_down;
+        
+        // Save periodically (e.g. every 10 seconds)
+        if state.last_save_time.elapsed().map(|d| d.as_secs() > 10).unwrap_or(true) {
+            save_traffic_data(state.total_up, state.total_down);
+            state.last_save_time = SystemTime::now();
+        }
     }
+    
+    // Read values for display
+    let (total_up, total_down) = {
+        let state = TRAFFIC_STATE.lock().await;
+        (state.total_up, state.total_down)
+    };
+
 
     // Get current profile name to help identify the main proxy group
     let profiles = Config::profiles().await;
