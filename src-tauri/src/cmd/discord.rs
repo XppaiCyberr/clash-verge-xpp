@@ -1,4 +1,8 @@
 //! Discord RPC Tauri commands
+//! 
+
+
+
 
 use crate::config::Config;
 use crate::core::discord_rpc;
@@ -173,13 +177,9 @@ pub async fn update_discord_activity() {
     }
 
     // Determine connection mode
-    let conn_mode = if verge_data.enable_tun_mode.unwrap_or(false) {
-        "TUN"
-    } else if verge_data.enable_system_proxy.unwrap_or(false) {
-        "System Proxy"
-    } else {
-        "Clash Active"
-    };
+    // Determine connection mode (not displayed anymore, kept if needed for logic but we can remove it)
+    // let conn_mode = ... 
+
 
     // Traffic info
     let up = TRAFFIC_UP.load(Ordering::Relaxed);
@@ -195,7 +195,7 @@ pub async fn update_discord_activity() {
         total_down = connections.download_total;
     }
 
-    // Get current profile name and clash mode
+    // Get current profile name to help identify the main proxy group
     let profiles = Config::profiles().await;
     let profiles_data = profiles.data_arc();
     let current_profile = profiles_data
@@ -208,42 +208,72 @@ pub async fn update_discord_activity() {
                     .find(|p| p.uid.as_ref().map(|u| u.as_str()) == Some(uid.as_str()))
                     .and_then(|p| p.name.clone())
             })
-        })
-        .unwrap_or_else(|| "No Profile".into());
+        });
 
-    let details = format!("↑ {} • ↓ {} (All: ↑ {} • ↓ {}) | {}", 
+
+    let details = format!("↑ {} • ↓ {}", 
         format_speed(up), 
-        format_speed(down), 
-        format_bytes(total_up), 
-        format_bytes(total_down),
-        current_profile
+        format_speed(down)
     );
 
-    let clash = Config::clash().await;
-    let clash_data = clash.data_arc();
-    let clash_mode = clash_data
-        .0
-        .get("mode")
-        .and_then(|v| v.as_str())
-        .map(|s| {
-            let mut c = s.chars();
-            match c.next() {
-                None => String::new(),
-                Some(f) => f.to_uppercase().collect::<String>() + c.as_str(),
-            }
-        })
-        .unwrap_or_else(|| "Rule".to_string());
+    // Clash mode (not displayed anymore)
+    // let clash = Config::clash().await;
+    // ...
+
 
     // Fetch the current selected node
     let mut selected_node = String::new();
     let mut total_proxies = 0;
     
     if let Ok(proxies) = mihomo.get_proxies().await {
-        if let Some(global) = proxies.proxies.get("GLOBAL") {
-            if let Some(now) = &global.now {
-                selected_node = now.clone();
+        // Logic to determine the "Primary" proxy group
+        // 1. Try to find a group matching the Profile Name
+        // 2. Fallback to "Proxy", "Default", "Select"
+        // 3. Use GLOBAL if nothing else matches specific criteria, OR if GLOBAL is manually set to a specific node (not just fallback)
+        
+        // Try to identify the main group based on profile name
+        let mut main_group_name = String::from("GLOBAL");
+        
+        if let Some(profile_name) = &current_profile {
+            // Check if there is a proxy group that contains the profile name (case-insensitive)
+            // e.g. Profile "XppaiCyber" -> Group "XppaiCyber"
+            for key in proxies.proxies.keys() {
+                 if key.to_lowercase().contains(&profile_name.to_lowercase()) {
+                     main_group_name = key.clone();
+                     break;
+                 }
             }
         }
+        
+        // If we didn't find a profile-based group, and we are in Rule mode (implied by this logic need),
+        // we might want to look for common names if GLOBAL is just "DIRECT" or "REJECT" or seemed weird.
+        if main_group_name == "GLOBAL" {
+             // Heuristic: If there is a group named "Proxy", use it.
+             if proxies.proxies.contains_key("Proxy") {
+                 main_group_name = String::from("Proxy");
+             }
+        }
+
+        if let Some(group) = proxies.proxies.get(&main_group_name) {
+            if let Some(now) = &group.now {
+                // Iterative resolution
+                let mut current = now.clone();
+                for _ in 0..10 {
+                    if let Some(g) = proxies.proxies.get(&current) {
+                        if let Some(next) = &g.now {
+                             current = next.clone();
+                        } else {
+                            break;
+                        }
+                    } else {
+                        break;
+                    }
+                }
+                selected_node = current;
+            }
+        }
+
+        
         total_proxies = proxies.proxies.len();
     }
 
@@ -254,10 +284,18 @@ pub async fn update_discord_activity() {
     // }
 
     // Pretty state: "TUN • Rule • Node"
+    // State: "All: ↑ 1.2 MB • ↓ 41.7 MB | ProxyName"
     let state = if !selected_node.is_empty() {
-        format!("{} • {} • {}", conn_mode, clash_mode, selected_node)
+        format!("All: ↑ {} • ↓ {} | {}", 
+            format_bytes(total_up), 
+            format_bytes(total_down), 
+            selected_node
+        )
     } else {
-        format!("{} • {}", conn_mode, clash_mode)
+        format!("All: ↑ {} • ↓ {}", 
+            format_bytes(total_up), 
+            format_bytes(total_down)
+        )
     };
 
     // Convert total proxies to party info (1 of Total)
